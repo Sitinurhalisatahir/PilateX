@@ -203,3 +203,92 @@ users (1) ──────< kelas (Many)
 ### 4. Akses Endpoint Terproteksi
 - Sekarang semua endpoint yang membutuhkan token sudah bisa diakses
 - Tandanya gembok 🔒 akan **tertutup**
+
+---
+
+## HTTP Status Code
+
+Berikut status code yang digunakan dalam Pilatex API:
+
+| Code | Status | Digunakan Pada |
+|------|--------|----------------|
+| 200 | OK | GET semua data, GET by ID, Login, Update, Delete |
+| 201 | Created | Register user baru, Buat kelas baru, Tambah member baru |
+| 400 | Bad Request | Email sudah terdaftar |
+| 401 | Unauthorized | Token tidak valid, Token kadaluarsa, Tidak ada token |
+| 404 | Not Found | Kelas tidak ditemukan, Member tidak ditemukan |
+| 422 | Unprocessable Entity | Format input salah, Field wajib tidak diisi, Tipe data tidak sesuai |
+| 500 | Internal Server Error | Kesalahan pada server |
+
+### Contoh Response
+
+**200 OK**
+```json
+{
+    "id": 1,
+    "nama_kelas": "Pilates Beginner",
+    "jadwal": "Senin 08:00",
+    "kapasitas": 10,
+    "instruktur_id": 1
+}
+```
+
+**201 Created**
+```json
+{
+    "id": 1,
+    "nama": "Siti",
+    "email": "siti@gmail.com"
+}
+```
+
+**401 Unauthorized**
+```json
+{
+    "detail": "Token tidak valid atau sudah kadaluarsa"
+}
+```
+
+**404 Not Found**
+```json
+{
+    "detail": "Kelas tidak ditemukan"
+}
+```
+
+**422 Unprocessable Entity**
+```json
+{
+    "detail": [
+        {
+            "loc": ["body", "email"],
+            "msg": "value is not a valid email address",
+            "type": "value_error.email"
+        }
+    ]
+}
+```
+
+---
+
+## Teknologi yang Digunakan
+
+| Teknologi | Versi | Kegunaan |
+|-----------|-------|----------|
+| Python | 3.13 | Bahasa pemrograman utama |
+| FastAPI | Latest | Framework backend |
+| Uvicorn | Latest | ASGI server untuk menjalankan aplikasi |
+| SQLAlchemy | Latest | ORM untuk manajemen database |
+| SQLite | Latest | Database |
+| Pydantic | Latest | Validasi input & output |
+| Python-jose | Latest | Membuat & memverifikasi JWT token |
+| Bcrypt | 4.0.1 | Hash & verifikasi password |
+| Python-multipart | Latest | Handle form data |
+
+## 📝 Lisensi
+
+Project ini dibuat untuk memenuhi projek UTS Pemrograman Web Lanjutan.
+
+---
+
+> Dibuat dengan oleh Siti Nur Halisa Tahir
