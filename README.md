@@ -16,3 +16,36 @@ Pilatex adalah RESTful API yang dibangun menggunakan FastAPI untuk mengelola kel
 | Database | SQLite |
 | ORM | SQLAlchemy |
 | Autentikasi | JWT (JSON Web Token) |
+
+---
+
+## 📁 Struktur Proyek
+
+```
+PilateX/
+├── main.py          # Entry point FastAPI
+├── database.py      # Koneksi & session database
+├── models/          # SQLAlchemy models
+│   ├── __init__.py
+│   ├── user.py
+│   ├── kelas.py
+│   └── member.py
+├── schemas/         # Pydantic schemas
+│   ├── __init__.py
+│   ├── user.py
+│   ├── kelas.py
+│   └── member.py
+├── routers/         # Endpoint per domain
+│   ├── __init__.py
+│   ├── auth.py
+│   ├── kelas.py
+│   └── member.py
+├── auth/            # JWT & security logic
+│   ├── __init__.py
+│   ├── jwt.py
+│   └── auth.py
+├── requirements.txt # Dependensi Python
+└── README.md        # Dokumentasi proyek
+```
+
+---
