@@ -54,7 +54,7 @@ PilateX/
 
 ### 1. Clone Repository
 ```bash
-git clone https://github.com/[username]/pilatex.git
+github.com/Sitinurhalisatahir/Pilate
 cd pilatex
 ```
 
